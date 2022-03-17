@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head") %>
+  <body>
+    <div class="container">
+      <%- include("../partials/nav") %>
+      <div class="contants p-5">
+        <ul class="list-group">
+          <% for(let p of polls){ %>
+          <li class="list-group-item">
+            <a href="/polls/<%= p._id %>"><%= p.title %> </a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+
+    <%- include("../partials/scripts") %>
+  </body>
+  <script>
+    const deleteBtn = document.getElementById("");
+  </script>
+</html>
+
+<!-- <div class="list-group-item d-flex justify-content-between align-items-center"
+>
+  <div>
+    <a href="/polls/"> </a>
+  </div>
+  <div>
+    <a href="/polls" class="btn btn-sm btn-danger">delete</a>
+    <form action="/polls>" method="post">
+      <input
+        type="submit"
+        class="btn btn-danger btn-sm"
+        value="delete"
+        placeholder="delete"
+        id=" "
+      />
+    </form>
+  </div> -->

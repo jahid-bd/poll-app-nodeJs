@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head") %>
+  <body>
+    <div class="container">
+      <%- include("../partials/nav") %>
+
+      <main style="background: #fff">
+        <div class="row">
+          <div class="col-md-6 offset-md-3 my-5">
+            <div class="card card-body">
+              <h4>Create A New Poll</h4>
+
+              <form action="/create" method="post" id="form">
+                <div class="form-group">
+                  <label for="title">Enter Title</label>
+                  <input
+                    name="title"
+                    type="text"
+                    id="title"
+                    class="form-control"
+                    placeholder="Enter a title"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="description">Enter Description</label>
+                  <textarea
+                    name="description"
+                    id="description"
+                    class="form-control"
+                    placeholder="Enter your description"
+                  ></textarea>
+                </div>
+                <div id="options">
+                  <p>Enter Your Options</p>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      name="options"
+                      class="form-control my-2"
+                      placeholder="Option 1"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      name="options"
+                      class="form-control my-2"
+                      placeholder="Option 2"
+                    />
+                  </div>
+                </div>
+                <button class="btn btn-secondary btn-sm" id="addOption">
+                  Add Option
+                </button>
+
+                <br />
+                <br />
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    class="btn btn-primary"
+                    value="Create Poll"
+                    id="create-btn"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <%- include("../partials/scripts.ejs") %>
+
+    <script src="/create.js"></script>
+  </body>
+</html>

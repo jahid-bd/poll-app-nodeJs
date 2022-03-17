@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head") %>
+  <body>
+    <div class="container">
+      <%- include("../partials/nav") %>
+      <div class="contants p-5">
+        <div class="row">
+          <div class="col-md-6 offset-md-3 my-5">
+            <div class="card card-body">
+              <h5>Title: <%= poll.title %></h5>
+              <p>Description: <%= poll.description %></p>
+              <div class="my-3">
+                <h3 class="py-2">Result</h3>
+                <h5 class="py-2">Total Votes: <%= poll.totalVotes %></h5>
+                <ul class="list-group">
+                  <% for(let r of result) {%>
+                  <li class="list-group-item">
+                    <%= r.name %> --> <b><%= r.percentage.toFixed(2) %>%</b>
+                  </li>
+                  <% } %>
+                </ul>
+              </div>
+              <div class="my-4">
+                <h5>What is Your Opinion</h5>
+                <ul class="list-group"></ul>
+                <form action="/polls/<%= poll._id %> " method="post">
+                  <% for(let option of poll.options) { %>
+                  <li class="list-group-item">
+                    <div class="custom-control custom-radio">
+                      <input
+                        type="radio"
+                        name="option"
+                        id="<%= option._id %> "
+                        class="custom-control-input"
+                        value="<%= option._id %> "
+                      />
+                      <label
+                        for="<%= option._id  %> "
+                        class="custom-control-label"
+                      >
+                        <b><%= option.name %></b>
+                      </label>
+                    </div>
+                  </li>
+                  <% } %>
+
+                  <input
+                    type="submit"
+                    class="btn btn-primary my-3"
+                    value="Submit your opinion"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include("../partials/scripts") %>
+  </body>
+</html>
